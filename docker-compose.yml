@@ -1,0 +1,41 @@
+version: '3.5'
+
+services:
+  php:
+    container_name: "${PROJECT_NAME}_php"
+    build:
+      context: .
+    volumes:
+      - .:/var/www/html:cached
+    networks:
+      - symfony_example_1
+    depends_on:
+      - mongodb
+  mongodb:
+    image: 'mongo:latest'
+    container_name: "${PROJECT_NAME}_mongodb"
+    ports:
+      - "27017:27017"
+    volumes:
+      - 'database_data:/data/db'
+    networks:
+      - symfony_example_1
+
+  nginx:
+    image: nginx:latest
+    container_name: "${PROJECT_NAME}_nginx"
+    volumes:
+      - './docker/nginx/conf.d:/etc/nginx/conf.d'
+      - .:/var/www/html:cached
+    ports:
+      - 80:80
+    networks:
+      - symfony_example_1
+    depends_on:
+      - php
+
+networks:
+  symfony_example_1:
+
+volumes:
+  database_data:
