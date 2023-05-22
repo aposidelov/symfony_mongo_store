@@ -12,4 +12,4 @@ make composer install
 2) http://localhost/store/{storeId}/view
 Приклад виборки доданного Store по його ID
 
-<img width="1440" alt="Screen Shot 2023-05-22 at 12 41 11 PM" src="https://github.com/aposidelov/symfony_mongo_store/assets/2487197/9ab204a4-a5dd-4c1b-8385-1ac87f03599a">
+<img width="623" alt="Screen Shot 2023-05-22 at 5 19 50 PM" src="https://github.com/aposidelov/symfony_mongo_store/assets/2487197/1227c802-c8b6-48c2-982a-96ec47c4be85">
